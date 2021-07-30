@@ -1,0 +1,2 @@
+- Team name: MyITTeam
+- Team project: MyITTeamProject
