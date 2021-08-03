@@ -14,10 +14,10 @@ class Category(models.Model):
         self.slug = slugify(self.name)
         super(Category, self).save(*args, **kwargs)
 
-    class Meta:
+    class Meta: # handling spelling errors
         verbose_name_plural = 'Categories'
 
-    def __str__(self):
+    def __str__(self): # the string form of generated class
         return self.name
 
 class Page(models.Model):
