@@ -1,3 +1,4 @@
+Basic information:
 - Team name: MyITTeam
 - Team project: MyITTeamProject
 
