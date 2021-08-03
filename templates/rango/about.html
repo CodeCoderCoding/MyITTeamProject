@@ -2,20 +2,27 @@
 {% load staticfiles %}
 
 {% block title_block %}
-    About Rango
+    About
 {% endblock %}
 
 {% block body_block %}
 <div class="jumbotron p-4">
     <div class="container">
-        <h1 class="jumbotron-heading">Rango says...</h1>
+        <h1 class="jumbotron-heading">About</h1>
     </div>
 </div>
 <div>
-    here is the about page. <br />
-    This tutorial has been put together by David Maxwell.<br />
+    myITTeam is the web site that provides the tour information.<br/>
+    The user can get the most liked cities in left area like London, Manchester, Edinburgh, Glasgow, Bath and York.<br/>
+    In the top, there are three buttons including home, about and logout.<br/>
+    In the right area, there are my views spot like Big Ben. This page can be available for all the users.<br/>
+    If the user wants to customize their own tour page, they need to sign up. After the user login, they will see my page.<br/>
+    In this page, the user can see my added cities and the user can add the cities and delete the cities.<br/>
+    In the meantime, the user can add the spot.<br/>
+    In addition, the user can click the about button to enter the about page which can learn this site how to use.<br/>
+    <br/>
     <p>Visits: {{ visits }}</p>
 </div>
-<img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" />
-<img src="{{ MEDIA_URL }}cat.jpg" alt="Picture of a Cat" />
+<img src="{% static 'images/uk.png' %}" alt="Picture of UK" />
+{#<img src="{{ MEDIA_URL }}cat.jpg" alt="Picture of a Cat" />#}
 {% endblock %}

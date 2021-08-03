@@ -4,13 +4,13 @@ from rango import views
 app_name = 'rango'
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('about/', views.about, name='about'),
-    path('category/<slug:category_name_slug>/', views.show_category, name='show_category'),
-    path('add_category/', views.add_category, name='add_category'),
-    path('category/<slug:category_name_slug>/add_page/', views.add_page, name='add_page'),
+    path('', views.home, name='home'),
+    path('scenery/', views.about, name='about'),
+    path('city/<slug:city_name_slug>/', views.show_scenery, name='show_scenery'),
+    path('add_city/', views.add_city, name='add_city'),
+    path('city/<slug:city_name_slug>/add_scenery/', views.add_scenery, name='add_scenery'),
     # path('register/', views.register, name='register'),
     # path('login/', views.user_login, name='login'),
-    path('restricted/', views.restricted, name='restricted'),
+    path('mypage/', views.mypage, name='mypage'),
     # path('logout/', views.user_logout, name='logout'),
 ]

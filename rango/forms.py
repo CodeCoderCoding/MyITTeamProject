@@ -1,29 +1,29 @@
 from django import forms
 from django.contrib.auth.models import User
-from rango.models import Page, Category, UserProfile
+from rango.models import Scenery, City, UserProfile
 
 
 # We could add these forms to views.py, but it makes sense to split them off into their own file.
 
-class CategoryForm(forms.ModelForm):
-    name = forms.CharField(max_length=Category.NAME_MAX_LENGTH, help_text="Please enter the category name.")
+class CityForm(forms.ModelForm):
+    name = forms.CharField(max_length=City.NAME_MAX_LENGTH, help_text="Please enter the city name.")
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     likes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
 
     class Meta:
-        model = Category
+        model = City
         fields = ('name',)
 
 
-class PageForm(forms.ModelForm):
-    title = forms.CharField(max_length=Page.TITLE_MAX_LENGTH, help_text="Please enter the title of the page.")
-    url = forms.URLField(max_length=200, help_text="Please enter the URL of the page.")
+class SceneryForm(forms.ModelForm):
+    title = forms.CharField(max_length=Scenery.TITLE_MAX_LENGTH, help_text="Please enter the title of the scenery.")
+    url = forms.URLField(max_length=200, help_text="Please enter the URL of the scenery.")
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
 
     class Meta:
-        model = Page
-        exclude = ('category',)
+        model = Scenery
+        exclude = ('city',)
 
     def clean(self):
         cleaned_data = self.cleaned_data

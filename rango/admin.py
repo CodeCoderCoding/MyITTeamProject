@@ -1,13 +1,13 @@
 from django.contrib import admin
-from rango.models import Category, Page
+from rango.models import City, Scenery
 from rango.models import UserProfile
 
-class PageAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'url')
+class SceneryAdmin(admin.ModelAdmin):
+    list_display = ('title', 'city', 'url')
 
-class CategoryAdmin(admin.ModelAdmin):
+class CityAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
-admin.site.register(Category, CategoryAdmin)
-admin.site.register(Page, PageAdmin)
+admin.site.register(City, CityAdmin)
+admin.site.register(Scenery, SceneryAdmin)
 admin.site.register(UserProfile)

@@ -8,16 +8,15 @@
 {% block body_block %}
 <div class="jumbotron p-4">
     <div class="container">
-        <h1 class="jumbotron-heading">Rango says...</h1>
+        <h1 class="jumbotron-heading">Home</h1>
         <div>
             <h2 class="h2">
             {% if user.is_authenticated %}
-                howdy {{ user.username }}!
+                Hi, {{ user.username }}!
             {% else %}
-                hey there partner!
+                Welcome!
             {% endif %}
             </h2>
-            <strong>{{ boldmessage }}</strong>
         </div>
     </div>
 </div>
@@ -29,14 +28,14 @@
                 <div class="card-body">
                     <h2>Most Liked Categories</h2>
                     <p class="card-text">
-                    {% if categories %}
+                    {% if cities %}
                     <ul class="list-group">
-                    {% for category in categories %}
-                        <li class="list-group-item"><a href="{% url 'rango:show_category' category.slug %}">{{ category.name }}</a></li>
+                    {% for city in cities %}
+                        <li class="list-group-item"><a href="{% url 'rango:show_scenery' city.slug %}">{{ city.name }}</a></li>
                     {% endfor %}
                     </ul>
                     {% else %}
-                    <strong>There are no categories present.</strong>
+                    <strong>There are no cities present.</strong>
                     {% endif %}
                     </p>
                 </div>
@@ -48,10 +47,10 @@
                 <div class="card-body">
                     <h2>Most Viewed Pages</h2>
                     <p class="card-text">
-                    {% if pages %}
+                    {% if sceneries %}
                     <ul class="list-group">
-                    {% for page in pages %}
-                        <li class="list-group-item"><a href="{{ page.url }}">{{ page.title }}</a></li class="list-group-item">
+                    {% for scenery in sceneries %}
+                        <li class="list-group-item"><a href="{{ scenery.url }}">{{ scenery.title }}</a></li>
                     {% endfor %}
                     </ul>
                     {% else %}
@@ -64,5 +63,4 @@
     </div>
 </div>
 
-<img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" />
 {% endblock %}
