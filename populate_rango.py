@@ -4,6 +4,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'MyITTeamProject.settings')
 import django
 django.setup()
 from rango.models import City, Scenery
+from django.contrib.auth.models import User
 
 def populate():
     London = [
@@ -48,13 +49,13 @@ def populate():
          'url':'https://www.visitbritain.com/us/en/riverside-museum',
          'intro':'Scenery introduction'} ]
     
-    cats = {'London': {'pages': London, 'views': 128, 'likes': 64, 'intro':'Discover 4 UNESCO World Heritage Sites (including the Tower of London), relax in 8 lush Royal Parks and explore free museums and galleries such as the British Museum.'},
-            'Manchester': {'pages': Manchester, 'views': 64, 'likes': 32, 'intro':'cityIntro'},
-            'Glasgow': {'pages': Glasgow, 'views': 32, 'likes': 16, 'intro':'cityIntro'} }
+    cats = {'London': {'cities': London, 'views': 128, 'likes': 64, 'intro':'Discover 4 UNESCO World Heritage Sites (including the Tower of London), relax in 8 lush Royal Parks and explore free museums and galleries such as the British Museum.'},
+            'Manchester': {'cities': Manchester, 'views': 64, 'likes': 32, 'intro':'cityIntro'},
+            'Glasgow': {'cities': Glasgow, 'views': 32, 'likes': 16, 'intro':'cityIntro'} }
     
     for cat, cat_data in cats.items():
         c = add_cat(cat, views=cat_data['views'], likes=cat_data['likes'], intro=cat_data['intro'])
-        for p in cat_data['pages']:
+        for p in cat_data['cities']:
             add_page(c, p['title'], p['url'], p['intro'])
     
     for c in City.objects.all():

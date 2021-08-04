@@ -18,11 +18,12 @@
         </div>
     </div>
     {% if sceneries %}
-    <ul>
+    <div>
         {% for scenery in sceneries %}
-        <li><a href="{{ scenery.url }}">{{ scenery.title }}</a>{{ scenery.intro }}</li>
+            <div><a href="{{ scenery.url }}">{{ scenery.title }}</a></div>
+            <div>{{ scenery.intro }}</div>
         {% endfor %}
-    </ul>
+    </div>
     {% else %}
     <strong>No scenery currently in city.</strong>
     {% endif %}
