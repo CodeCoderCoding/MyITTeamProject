@@ -16,7 +16,7 @@ class City(models.Model):
         super(City, self).save(*args, **kwargs)
 
     class Meta:
-        verbose_name_plural = 'Categories'
+        verbose_name_plural = 'Cities'
 
     def __str__(self):
         return self.name
@@ -47,7 +47,7 @@ class UserLikedCity(models.Model):
     NAME_MAX_LENGTH = 128
 
     name = models.CharField(max_length=NAME_MAX_LENGTH, unique=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.TextField(default="root")
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
     intro = models.TextField(default="introduction")
@@ -55,10 +55,10 @@ class UserLikedCity(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
-        super(City, self).save(*args, **kwargs)
+        super(UserLikedCity, self).save(*args, **kwargs)
 
     class Meta:
-        verbose_name_plural = 'Categories'
+        verbose_name_plural = 'Cities'
 
     def __str__(self):
         return self.name

@@ -15,7 +15,6 @@ def home(request):
     context_dict = {}
     context_dict['cities'] = city_list
     context_dict['sceneries'] = scenery_list
-    context_dict['extra'] = 'From the model solution on GitHub'
 
     visitor_cookie_handler(request)
 
@@ -48,19 +47,24 @@ def show_scenery(request, city_name_slug):
 
 
 @login_required
-def add_city(request):
+def add_city(request, user_name_slug):
     form = UserLikedCityForm()
 
     if request.method == 'POST':
         form = UserLikedCityForm(request.POST)
 
         if form.is_valid():
-            form.save(commit=True)
-            return redirect(reverse('rango:index'))
+            city = form.save(commit=False)
+            city.user = user_name_slug
+            city.save()
+
+            return redirect(reverse('rango:home'))
         else:
             print(form.errors)
 
-    return render(request, 'rango/add_city.html', {'form': form})
+    context_dict = {'form': form, 'username': user_name_slug}
+
+    return render(request, 'rango/add_city.html', context=context_dict)
 
 
 @login_required
@@ -72,7 +76,7 @@ def add_scenery(request, city_name_slug):
 
     # You cannot add a scenery to a Category that does not exist... DM
     if city is None:
-        return redirect(reverse('rango:index'))
+        return redirect(reverse('rango:home'))
 
     form = SceneryForm()
 
