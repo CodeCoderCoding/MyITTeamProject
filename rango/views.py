@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.urls import reverse
+from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from rango.models import City, Scenery
-from rango.forms import UserLikedCityForm, UserForm, UserProfileForm
+from rango.models import City, Scenery, UserLikedCity, UserLikedScenery
+from rango.forms import UserLikedCityForm, UserLikedSceneryForm, UserForm, UserProfileForm
 from datetime import datetime
 
 
@@ -48,53 +49,70 @@ def show_scenery(request, city_name_slug):
 
 @login_required
 def add_city(request, user_name_slug):
+    try:
+        user = User.objects.get(username=user_name_slug)
+    except:
+        user = None
+
+    # You cannot add a scenery to a Category that does not exist... DM
+    if user is None:
+        return redirect(reverse('rango:home'))
+
     form = UserLikedCityForm()
 
     if request.method == 'POST':
         form = UserLikedCityForm(request.POST)
 
         if form.is_valid():
-            city = form.save(commit=False)
-            city.user = user_name_slug
-            city.save()
+            if user:
+                city = form.save(commit=False)
+                city.user = user
+                city.save()
 
-            return redirect(reverse('rango:home'))
+                return redirect(reverse('rango:home'))
         else:
             print(form.errors)
 
-    context_dict = {'form': form, 'username': user_name_slug}
+    context_dict = {'form': form, 'user': user}
 
     return render(request, 'rango/add_city.html', context=context_dict)
 
 
 @login_required
-def add_scenery(request, city_name_slug):
+def add_scenery(request, city_name_slug, user_name_slug):
     try:
-        city = City.objects.get(slug=city_name_slug)
+        city = UserLikedCity.objects.get(slug=city_name_slug)
+        user = User.objects.get(username=user_name_slug)
     except:
         city = None
+        user = None
 
     # You cannot add a scenery to a Category that does not exist... DM
     if city is None:
         return redirect(reverse('rango:home'))
 
-    form = SceneryForm()
+    if user is None:
+        return redirect(reverse('rango:home'))
+
+    form = UserLikedSceneryForm()
 
     if request.method == 'POST':
-        form = SceneryForm(request.POST)
+        form = UserLikedSceneryForm(request.POST)
 
         if form.is_valid():
             if city:
-                scenery = form.save(commit=False)
-                scenery.city = city
-                scenery.views = 0
-                scenery.save()
+                if user:
+                    scenery = form.save(commit=False)
+                    scenery.city = city
+                    scenery.user = user
+                    scenery.views = 0
+                    scenery.save()
 
-                return redirect(reverse('rango:show_scenery', kwargs={'city_name_slug': city_name_slug}))
+                    return redirect(reverse('rango:show_scenery', kwargs={'city_name_slug': city_name_slug}))
         else:
             print(form.errors)  # This could be better done; for the purposes of TwD, this is fine. DM.
 
-    context_dict = {'form': form, 'city': city}
+    context_dict = {'form': form, 'city': city, 'user':user}
     return render(request, 'rango/add_scenery.html', context=context_dict)
 
 

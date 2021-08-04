@@ -43,7 +43,7 @@
     {% endif %}
 
     {% if user.is_authenticated %}
-    <a href="{% url 'rango:add_scenery' city.slug %}">Add Scenery</a> <br />
+    <a href="{% url 'rango:add_scenery' city.slug user.username%}">Add Scenery</a> <br />
     {% endif %}
     {% else %}
     The specified category does not exist.
