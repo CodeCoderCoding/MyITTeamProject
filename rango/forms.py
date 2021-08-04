@@ -11,7 +11,9 @@ class CityForm(forms.ModelForm):
     likes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
 
+    # Nested classes that provide additional information for the form
     class Meta:
+        # Connect the ModelForm to a model
         model = City
         fields = ('name',)
 
@@ -38,13 +40,15 @@ class SceneryForm(forms.ModelForm):
 # have errors, need update
 class UserLikedCityForm(forms.ModelForm):
     name = forms.CharField(max_length=City.NAME_MAX_LENGTH, help_text="Please enter the city name.")
+    intro = forms.CharField(help_text="Please enter the city intro.")
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     likes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
+    user_id = forms.CharField()
 
     class Meta:
         model = UserLikedCity
-        fields = ('name',)
+        fields = ('name', 'intro')
 
 # have errors, need update
 class UserLikedSceneryForm(forms.ModelForm):

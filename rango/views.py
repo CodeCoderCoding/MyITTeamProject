@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from rango.models import City, Scenery
-from rango.forms import CityForm, SceneryForm, UserForm, UserProfileForm
+from rango.forms import CityForm, SceneryForm, UserLikedCityForm, UserForm, UserProfileForm
 from datetime import datetime
 
 
@@ -49,10 +49,10 @@ def show_scenery(request, city_name_slug):
 
 @login_required
 def add_city(request):
-    form = CityForm()
+    form = UserLikedCityForm()
 
     if request.method == 'POST':
-        form = CityForm(request.POST)
+        form = UserLikedCityForm(request.POST)
 
         if form.is_valid():
             form.save(commit=True)

@@ -35,7 +35,9 @@
                         {% if user.is_authenticated %}
                         <li class="nav-item "><a class="nav-link" href="{% url 'rango:mypage' %}">MyPage</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>
-{#                        <li class="nav-item"><a class="nav-link" href="{% url 'rango:add_city' %}">Add City</a></li>#}
+{#                            the next two row code put here just fot test now#}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'rango:add_city' %}">Add City</a></li>
+{#                        <li class="nav-item"><a class="nav-link" href="{% url 'rango:add_scenery' %}">Add Scenery</a></li>#}
                         {% else %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'registration_register' %}">Sign up</a></li>
                         <li class="nav-item "><a class="nav-link" href="{% url 'auth_login' %}">Login</a></li>
