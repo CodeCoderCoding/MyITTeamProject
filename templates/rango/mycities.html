@@ -1,0 +1,25 @@
+<ul class="nav flex-column">
+{% if mycities %}
+    {% for c in mycities %}
+        {% if c == current_city %}
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'rango:show_myscenery' c.slug %}">
+                <span data-feather="archive"></span>{{ c.name }}
+            </a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'rango:show_myscenery' c.slug %}">
+                <span data-feather="archive"></span>{{ c.name }}
+            </a>
+        </li>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <li class="nav-item">There are no cities present.</li>
+    <br/>
+    <br/>
+    <li class="nav-item bg-primary text-light"><a class="nav-link text-light text-center" href="{% url 'rango:add_city' user.username %}">Add City</a></li>
+{% endif %}
+</ul>
+

@@ -35,11 +35,13 @@ def show_scenery(request, city_name_slug):
     context_dict = {}
 
     try:
+        city_list = City.objects.order_by('-likes')[:5]
         city = City.objects.get(slug=city_name_slug)
         sceneries = Scenery.objects.filter(city=city)
 
         context_dict['sceneries'] = sceneries
         context_dict['city'] = city
+        context_dict['categories'] = city_list
     except City.DoesNotExist:
         context_dict['sceneries'] = None
         context_dict['city'] = None
@@ -116,13 +118,19 @@ def add_scenery(request, city_name_slug, user_name_slug):
         else:
             print(form.errors)  # This could be better done; for the purposes of TwD, this is fine. DM.
 
-    context_dict = {'form': form, 'city': city, 'user':user}
+    context_dict = {'form': form, 'city': city, 'user': user}
     return render(request, 'rango/add_scenery.html', context=context_dict)
 
 
 @login_required
-def mypage(request):
-    return render(request, 'rango/mypage.html')
+def mypage(request, user_name_slug):
+    try:
+        user = User.objects.get(username=user_name_slug)
+    except:
+        user = None
+
+    context_dict = {'user': user}
+    return render(request, 'rango/mypage.html', context=context_dict)
 
 
 def get_server_side_cookie(request, cookie, default_val=None):

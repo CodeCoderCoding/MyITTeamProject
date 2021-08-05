@@ -1,0 +1,86 @@
+#firstdiv{
+    padding-top: 4px;
+}
+h1#topic{
+    text-align: center;
+    font-size: large;
+    padding-top: 1px;
+    font-family: "Franklin Gothic Heavy";
+    font-style:italic;
+}
+span{
+    font-size: 16px;
+    font-family:"Times New Roman";
+}
+
+nav#headnav{background-color: #18086e;
+    font-size: large;
+
+}
+
+div#navbarCollapse{
+    background-color: #18086e;
+}
+ul#headnav{
+    color:white
+}
+
+/*#seconddiv{
+    margin-bottom: 6px;
+
+}
+/*div#img{
+    float:left;
+    margin-top: 6px;
+    margin-right: 10px;
+    margin-bottom: 6px;
+    width: 20%;
+    height: 90%;
+
+}
+/*img{
+    width:150px;
+    height:115px;
+}
+
+#imgE{
+    width:155px;
+    height:133px;
+    margin-top: 7px;
+}
+img#uk2{
+    width: 100px;
+    height:60px;
+}
+*/
+
+/*div#kel{
+    height:120px;
+}
+div#introuk{
+    margin-top:-30px;
+}
+div#big{
+    margin-top:10px;
+}
+div#category{
+    margin-top:50px;
+}
+*/
+
+footer{
+    width:100%;
+    height:20%;
+    background-color: #18086e;
+    position:absolute;
+}
+p#footer1{
+    font-size: large;
+    color: white;
+}
+div#max{
+    margin-top:97px;
+}
+div#introuk{
+    margin-top:-30px;
+}

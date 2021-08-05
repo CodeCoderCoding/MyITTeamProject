@@ -1,15 +1,44 @@
 {% extends 'rango/base.html' %}
+{% load rango_template_tags %}
 {% load staticfiles %}
 
 {% block title_block %}
     My Page
 {% endblock %}
 
+{% block sidebar_block %}
+   {% get_mycity_list city user %}
+{% endblock %}
+
 {% block body_block %}
 <div class="jumbotron p-4">
-    <div class="container">
-        <h1 class="jumbotron-heading">My Page</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>My Added Spots</h4>
+                   <div class="row no-gutters">
+                       <div class="col-md-3">
+                           <img src="{% static 'images/Edinburgh Castle.jpg' %}" class="img-fluid rounded" alt="Picture of trust" />
+                       </div>
+                       <div class="col-md-9">
+                           <div class="card-body">
+                               <blockquote class="blockquote text-center">
+                               <h5 class="card-title">Harewood House Trust</h5>
+                               </blockquote>
+                               <p class="card-text">Harewood sits in the heart of Yorkshire and is one of the Treasure Houses of England. The House was built in the 18th century and has art collections to rival the finest in Britain.</p>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <button type="button" class="btn btn-secondary btn-sm">Delete</button>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <button type="button" class="btn btn-secondary btn-sm">modify</button>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+            </div>
+        </div>
     </div>
 </div>
-Since you're logged in, you can see this text!<br />
 {% endblock %}
