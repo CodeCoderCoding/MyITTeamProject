@@ -21,6 +21,7 @@ class UserLikedSceneryForm(forms.ModelForm):
     url = forms.URLField(max_length=200, help_text="Please enter the URL of the scenery.")
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     intro = forms.CharField(help_text="Please enter the city intro.")
+    # picture = forms.ImageField(help_text="Please choose a image.")
 
     class Meta:
         model = UserLikedScenery

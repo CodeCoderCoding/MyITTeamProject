@@ -2,6 +2,7 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 
+
 class City(models.Model):
     NAME_MAX_LENGTH = 128
 
@@ -21,19 +22,21 @@ class City(models.Model):
     def __str__(self):
         return self.name
 
+
 class Scenery(models.Model):
     TITLE_MAX_LENGTH = 128
-    URL_MAX_LENGTH = 200
+    URL_MAX_LENGTH = 300
 
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     title = models.CharField(max_length=TITLE_MAX_LENGTH)
     url = models.URLField()
     views = models.IntegerField(default=0)
     intro = models.TextField("introduction")
-    # picture = models.ImageField(upload_to='scenery_images', blank=True)
+    picture = models.ImageField(upload_to='scenery_images', blank=True)
 
     def __str__(self):
         return self.title
+
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -42,6 +45,7 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
+
 
 class UserLikedCity(models.Model):
     NAME_MAX_LENGTH = 128
@@ -63,9 +67,10 @@ class UserLikedCity(models.Model):
     def __str__(self):
         return self.name
 
+
 class UserLikedScenery(models.Model):
     TITLE_MAX_LENGTH = 128
-    URL_MAX_LENGTH = 200
+    URL_MAX_LENGTH = 300
 
     city = models.ForeignKey(UserLikedCity, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -73,7 +78,7 @@ class UserLikedScenery(models.Model):
     url = models.URLField()
     views = models.IntegerField(default=0)
     intro = models.TextField("Scenery introduction")
-    # picture = models.ImageField(upload_to='user_scenery_images', blank=True)
+    picture = models.ImageField(upload_to='user_scenery_images', blank=True)
 
     def __str__(self):
         return self.title

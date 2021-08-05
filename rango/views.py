@@ -106,9 +106,13 @@ def add_scenery(request, city_name_slug, user_name_slug):
                     scenery.city = city
                     scenery.user = user
                     scenery.views = 0
-                    scenery.save()
 
-                    return redirect(reverse('rango:show_scenery', kwargs={'city_name_slug': city_name_slug}))
+                    if 'picture' in request.FILES:
+                        scenery.picture = request.FILES['picture']
+
+                        scenery.save()
+
+                        return redirect(reverse('rango:show_scenery', kwargs={'city_name_slug': city_name_slug}))
         else:
             print(form.errors)  # This could be better done; for the purposes of TwD, this is fine. DM.
 
