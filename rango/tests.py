@@ -46,7 +46,7 @@ class SessionPersistenceTests(TestCase):
         Artificially tweaks the last_visit variable to force a counter increment.
         """
         for i in range(0, 10):
-            response = self.client.get(reverse('rango:home'))
+            response = self.client.get(reverse('rango:about'))
             session = self.client.session
 
             self.assertIsNotNone(session['visits'])
@@ -60,3 +60,37 @@ class SessionPersistenceTests(TestCase):
             session.save()
 
             self.assertEquals(session['visits'], i + 1)
+
+class ProjectAboutTests(TestCase):
+    """
+    Tests the views manipulated for Chapter 10.
+    Specifically, we look for changes to the index and about views.
+    """
+
+    def test_about_view(self):
+        """
+        Checks that the index view doesn't contain any presentational logic for showing the number of visits.
+        This should be removed in the final exercise.
+        """
+        response = self.client.get(reverse('rango:about'))
+        content = response.content.decode()
+
+        self.assertTrue('visits:' not in content.lower(),
+                        f"{FAILURE_HEADER}The index.html template should not contain any logic for displaying the number of views. Did you complete the exercises?{FAILURE_FOOTER}")
+
+class ProjectHomeTests(TestCase):
+    """
+    Tests the views manipulated for Chapter 10.
+    Specifically, we look for changes to the index and about views.
+    """
+
+    def test_home_view(self):
+        """
+        Checks that the index view doesn't contain any presentational logic for showing the number of visits.
+        This should be removed in the final exercise.
+        """
+        response = self.client.get(reverse('rango:home'))
+        content = response.content.decode()
+
+        self.assertTrue('visits:' not in content.lower(),
+                        f"{FAILURE_HEADER}The index.html template should not contain any logic for displaying the number of views. Did you complete the exercises?{FAILURE_FOOTER}")
