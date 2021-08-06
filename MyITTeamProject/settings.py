@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # LOGIN_URL = 'rango:login'
 REGISTRATION_OPEN = True
 REGISTRATION_AUTO_LOGIN = True
-LOGIN_REDIRECT_URL = 'rango:mypage'
+LOGIN_REDIRECT_URL = 'rango:home'
 LOGIN_URL = 'auth_login'
 
 # Application definition
@@ -73,6 +73,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                'django.template.context_processors.static',
             ],
         },
     },

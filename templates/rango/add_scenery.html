@@ -1,8 +1,13 @@
 {% extends 'rango/base.html' %}
+{% load rango_template_tags %}
 {% load staticfiles %}
 
 {% block title_block %}
     Add a Scenery
+{% endblock %}
+
+{% block sidebar_block %}
+   {% get_mycity_list city user %}
 {% endblock %}
 
 {% block body_block %}

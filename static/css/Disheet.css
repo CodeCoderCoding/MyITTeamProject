@@ -73,10 +73,15 @@ footer{
     height:20%;
     background-color: #18086e;
     position:absolute;
+    vertical-align:middle;
+    padding-top:50px;
+    align-items:Center;
 }
 p#footer1{
     font-size: large;
     color: white;
+    text-align:Center;
+    padding-top:50px;
 }
 div#max{
     margin-top:97px;
