@@ -33,8 +33,8 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarCollapse" >
-                    <ul class="navbar-nav mr-auto" id="headnav">
+                <div class="collapse navbar-collapse text-center" id="navbarCollapse" >
+                    <ul class="navbar-nav mr-auto text-center" id="headnav">
                         <li class="nav-item"><a class="nav-link" href="{% url 'rango:home' %}">Home</a></li>
                         <li class="nav-item "><a class="nav-link" href="{% url 'rango:about' %}">About</a></li>
                         {% if user.is_authenticated %}
