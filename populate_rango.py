@@ -69,6 +69,75 @@ def populate():
                   'from horse-drawn carriages to early, automobiles, locomotives and some of Scotlands earliest buses and trams.',
          'picture': 'user_scenery_images/RiversideMuseum.jpg'}]
 
+    edinburgh = [
+        {'title': 'Edinburgh University',
+         'url': 'https://www.gla.ac.uk/',
+         'intro': 'The University of Glasgow (abbreviated as Glas. in post-nominals; Scottish Gaelic: Oilthigh Ghlaschu[5]) is a public research university in Glasgow, Scotland. Founded by '
+                  'papal bull in 1451, it is the fourth-oldest university in the English-speaking world and one of Scotlands four ancient universities. Along with the universities of Edinburgh, '
+                  'Aberdeen, and St Andrews, the university was part of the Scottish Enlightenment during the 18th century. ',
+         'picture': 'user_scenery_images/UniversityOfGlasgow.png'},
+        {'title': 'Glasgow School of Art',
+         'url': 'https://www.visitbritain.com/us/en/glasgow-school-art',
+         'intro': 'The architect Charles Rennie Mackintosh’s masterpiece, the Glasgow School of Art, is a remarkable building, noted for its art nouveau ironwork, curling organic forms and '
+                  'unusual furniture. To see inside, you’ll need to join a tour, so as not to disturb the students who work here.',
+         'picture': 'user_scenery_images/GlasgowSchoolOfArt.jpg'},
+        {'title': 'Kelvingrove Art Gallery and Museum',
+         'url': 'https://www.visitbritain.com/us/en/kelvingrove-art-gallery-and-museum',
+         'intro': 'With 8,000 objects in 22 galleries, Kelvingrove is one of Britains largest free museums. Explore its wealth '
+                  'of art and historical objects, from arms and armour to paintings of all eras and movements, and even a natural history section.',
+         'picture': 'user_scenery_images/KelvingroveMuseum.jpg'},
+        {'title': 'Riverside Museum',
+         'url': 'https://www.visitbritain.com/us/en/riverside-museum',
+         'intro': 'Scotlands museum of transport and travel, the Riverside Museum takes you on a fascinating journey through the story of vehicles, '
+                  'from horse-drawn carriages to early, automobiles, locomotives and some of Scotlands earliest buses and trams.',
+         'picture': 'user_scenery_images/RiversideMuseum.jpg'}]
+
+    cambridge = [
+        {'title': 'Cambridge University',
+         'url': 'https://www.gla.ac.uk/',
+         'intro': 'The University of Glasgow (abbreviated as Glas. in post-nominals; Scottish Gaelic: Oilthigh Ghlaschu[5]) is a public research university in Glasgow, Scotland. Founded by '
+                  'papal bull in 1451, it is the fourth-oldest university in the English-speaking world and one of Scotlands four ancient universities. Along with the universities of Edinburgh, '
+                  'Aberdeen, and St Andrews, the university was part of the Scottish Enlightenment during the 18th century. ',
+         'picture': 'user_scenery_images/UniversityOfGlasgow.png'},
+        {'title': 'Glasgow School of Art',
+         'url': 'https://www.visitbritain.com/us/en/glasgow-school-art',
+         'intro': 'The architect Charles Rennie Mackintosh’s masterpiece, the Glasgow School of Art, is a remarkable building, noted for its art nouveau ironwork, curling organic forms and '
+                  'unusual furniture. To see inside, you’ll need to join a tour, so as not to disturb the students who work here.',
+         'picture': 'user_scenery_images/GlasgowSchoolOfArt.jpg'},
+        {'title': 'Kelvingrove Art Gallery and Museum',
+         'url': 'https://www.visitbritain.com/us/en/kelvingrove-art-gallery-and-museum',
+         'intro': 'With 8,000 objects in 22 galleries, Kelvingrove is one of Britains largest free museums. Explore its wealth '
+                  'of art and historical objects, from arms and armour to paintings of all eras and movements, and even a natural history section.',
+         'picture': 'user_scenery_images/KelvingroveMuseum.jpg'},
+        {'title': 'Riverside Museum',
+         'url': 'https://www.visitbritain.com/us/en/riverside-museum',
+         'intro': 'Scotlands museum of transport and travel, the Riverside Museum takes you on a fascinating journey through the story of vehicles, '
+                  'from horse-drawn carriages to early, automobiles, locomotives and some of Scotlands earliest buses and trams.',
+         'picture': 'user_scenery_images/RiversideMuseum.jpg'}]
+
+    oxford = [
+        {'title': 'Oxford University',
+         'url': 'https://www.gla.ac.uk/',
+         'intro': 'The University of Glasgow (abbreviated as Glas. in post-nominals; Scottish Gaelic: Oilthigh Ghlaschu[5]) is a public research university in Glasgow, Scotland. Founded by '
+                  'papal bull in 1451, it is the fourth-oldest university in the English-speaking world and one of Scotlands four ancient universities. Along with the universities of Edinburgh, '
+                  'Aberdeen, and St Andrews, the university was part of the Scottish Enlightenment during the 18th century. ',
+         'picture': 'user_scenery_images/UniversityOfGlasgow.png'},
+        {'title': 'Glasgow School of Art',
+         'url': 'https://www.visitbritain.com/us/en/glasgow-school-art',
+         'intro': 'The architect Charles Rennie Mackintosh’s masterpiece, the Glasgow School of Art, is a remarkable building, noted for its art nouveau ironwork, curling organic forms and '
+                  'unusual furniture. To see inside, you’ll need to join a tour, so as not to disturb the students who work here.',
+         'picture': 'user_scenery_images/GlasgowSchoolOfArt.jpg'},
+        {'title': 'Kelvingrove Art Gallery and Museum',
+         'url': 'https://www.visitbritain.com/us/en/kelvingrove-art-gallery-and-museum',
+         'intro': 'With 8,000 objects in 22 galleries, Kelvingrove is one of Britains largest free museums. Explore its wealth '
+                  'of art and historical objects, from arms and armour to paintings of all eras and movements, and even a natural history section.',
+         'picture': 'user_scenery_images/KelvingroveMuseum.jpg'},
+        {'title': 'Riverside Museum',
+         'url': 'https://www.visitbritain.com/us/en/riverside-museum',
+         'intro': 'Scotlands museum of transport and travel, the Riverside Museum takes you on a fascinating journey through the story of vehicles, '
+                  'from horse-drawn carriages to early, automobiles, locomotives and some of Scotlands earliest buses and trams.',
+         'picture': 'user_scenery_images/RiversideMuseum.jpg'}]
+
     cats = {'London': {'cities': london, 'views': 128, 'likes': 64,
                        'intro': 'Discover 4 UNESCO World Heritage Sites (including the Tower of London), relax in 8 lush Royal Parks and explore free museums and galleries such as the British Museum. '
                                 'London shopping offers everything from flea markets and vintage shops to luxury department stores like Selfridges and Harrods. '
@@ -84,7 +153,25 @@ def populate():
                                  'Glasgow is a top spot for a city break if you’re keen on contemporary culture. Its home to over 20 museums and '
                                  'art galleries, including the award-winning Burrell Collection, the huge Kelvingrove Museum and Art Gallery and '
                                  'the Riverside Museum, a radical space designed by Zaha Hadid for the city’s transport heritage. '
-                                 'The city is also the home of both the Scottish Opera and the Scottish Ballet.'}}
+                                 'The city is also the home of both the Scottish Opera and the Scottish Ballet.'},
+            'Edinburgh': {'cities': edinburgh, 'views': 32, 'likes': 16,
+                        'intro': 'Its history stretches back to the Stone Age, but this city is thoroughly modern and no stranger to a good time. '
+                                 'Glasgow is a top spot for a city break if you’re keen on contemporary culture. Its home to over 20 museums and '
+                                 'art galleries, including the award-winning Burrell Collection, the huge Kelvingrove Museum and Art Gallery and '
+                                 'the Riverside Museum, a radical space designed by Zaha Hadid for the city’s transport heritage. '
+                                 'The city is also the home of both the Scottish Opera and the Scottish Ballet.'},
+            'Cambridge': {'cities': cambridge, 'views': 32, 'likes': 16,
+                        'intro': 'Its history stretches back to the Stone Age, but this city is thoroughly modern and no stranger to a good time. '
+                                 'Glasgow is a top spot for a city break if you’re keen on contemporary culture. Its home to over 20 museums and '
+                                 'art galleries, including the award-winning Burrell Collection, the huge Kelvingrove Museum and Art Gallery and '
+                                 'the Riverside Museum, a radical space designed by Zaha Hadid for the city’s transport heritage. '
+                                 'The city is also the home of both the Scottish Opera and the Scottish Ballet.'},
+            'Oxford': {'cities': oxford, 'views': 32, 'likes': 16,
+                        'intro': 'Its history stretches back to the Stone Age, but this city is thoroughly modern and no stranger to a good time. '
+                                 'Glasgow is a top spot for a city break if you’re keen on contemporary culture. Its home to over 20 museums and '
+                                 'art galleries, including the award-winning Burrell Collection, the huge Kelvingrove Museum and Art Gallery and '
+                                 'the Riverside Museum, a radical space designed by Zaha Hadid for the city’s transport heritage. '
+                                 'The city is also the home of both the Scottish Opera and the Scottish Ballet.'}, }
 
     for cat, cat_data in cats.items():
         c = add_cat(cat, views=cat_data['views'], likes=cat_data['likes'], intro=cat_data['intro'])

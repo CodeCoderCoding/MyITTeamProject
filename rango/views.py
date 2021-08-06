@@ -86,7 +86,7 @@ def add_city(request, user_name_slug):
                 city.user = user
                 city.save()
 
-                return redirect(reverse('rango:mypage'), kwargs={'user_name_slug': user_name_slug})
+                return redirect(reverse('rango:mypage', kwargs={'user_name_slug': user_name_slug}))
         else:
             print(form.errors)
 

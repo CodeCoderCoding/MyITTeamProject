@@ -24,8 +24,7 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-md navbar-dark fixed-top  p-0" id="headnav">
-               <!-- <a id="uk" class="navbar-brand p-2" href="{% url 'rango:home' %}">-->
-                    <a id="uk" class="navbar-brand p-1" href="{% url 'rango:home' %}">
+                    <a id="uk" class="navbar-brand p-1" href="{% url 'rango:about' %}">
                     <img id="uk2" src="{% static 'images/uk2.png' %}" alt="UK">
 
                     </a>
@@ -35,7 +34,7 @@
 
                 <div class="collapse navbar-collapse text-center" id="navbarCollapse" >
                     <ul class="navbar-nav mr-auto text-center" id="headnav">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'rango:home' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'rango:show_scenery' 'london' %}">Home</a></li>
                         <li class="nav-item "><a class="nav-link" href="{% url 'rango:about' %}">About</a></li>
                         {% if user.is_authenticated %}
                         <li class="nav-item "><a class="nav-link" href="{% url 'rango:mypage' user.username %}">MyPage</a></li>

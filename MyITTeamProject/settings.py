@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # LOGIN_URL = 'rango:login'
 REGISTRATION_OPEN = True
 REGISTRATION_AUTO_LOGIN = True
-LOGIN_REDIRECT_URL = 'rango:home'
+LOGIN_REDIRECT_URL = 'rango:about'
 LOGIN_URL = 'auth_login'
 
 # Application definition

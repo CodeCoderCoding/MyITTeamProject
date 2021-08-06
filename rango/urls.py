@@ -4,7 +4,7 @@ from rango import views
 app_name = 'rango'
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.about, name='about'),
     path('about/', views.about, name='about'),
     path('city/<slug:city_name_slug>/', views.show_scenery, name='show_scenery'),
     path('mycity/<slug:city_name_slug>/', views.show_my_scenery, name='show_my_scenery'),
