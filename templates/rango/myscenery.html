@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block sidebar_block %}
-   {% get_category_list category %}
+   {% get_mycity_list city user %}
 {% endblock %}
 
 {% block body_block %}
@@ -49,6 +49,6 @@
     <a href="{% url 'rango:add_scenery' city.slug user.username%}">Add Scenery</a> <br />
     {% endif %}
     {% else %}
-    The specified city does not exist.
+    The specified category does not exist.
     {% endif %}
 {% endblock %}

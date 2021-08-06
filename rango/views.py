@@ -49,6 +49,21 @@ def show_scenery(request, city_name_slug):
     return render(request, 'rango/scenery.html', context=context_dict)
 
 
+def show_my_scenery(request, city_name_slug):
+    context_dict = {}
+
+    try:
+        city = UserLikedCity.objects.get(slug=city_name_slug)
+        sceneries = UserLikedScenery.objects.filter(city=city)
+
+        context_dict['sceneries'] = sceneries
+        context_dict['city'] = city
+    except City.DoesNotExist:
+        context_dict['sceneries'] = None
+        context_dict['city'] = None
+
+    return render(request, 'rango/myscenery.html', context=context_dict)
+
 @login_required
 def add_city(request, user_name_slug):
     try:
@@ -71,7 +86,7 @@ def add_city(request, user_name_slug):
                 city.user = user
                 city.save()
 
-                return redirect(reverse('rango:home'))
+                return redirect(reverse('rango:mypage'), kwargs={'user_name_slug': user_name_slug})
         else:
             print(form.errors)
 
@@ -114,7 +129,7 @@ def add_scenery(request, city_name_slug, user_name_slug):
 
                         scenery.save()
 
-                        return redirect(reverse('rango:show_scenery', kwargs={'city_name_slug': city_name_slug}))
+                        return redirect(reverse('rango:show_my_scenery', kwargs={'city_name_slug': city_name_slug}))
         else:
             print(form.errors)  # This could be better done; for the purposes of TwD, this is fine. DM.
 
@@ -124,12 +139,22 @@ def add_scenery(request, city_name_slug, user_name_slug):
 
 @login_required
 def mypage(request, user_name_slug):
+    context_dict = {}
+
     try:
         user = User.objects.get(username=user_name_slug)
+        city_list = UserLikedCity.objects.order_by('-likes')[:5]
+        scenery_list = UserLikedScenery.objects.order_by('-views')[:5]
+
     except:
         user = None
+        city_list = None
+        scenery_list = None
 
-    context_dict = {'user': user}
+    context_dict['user'] = user
+    context_dict['cities'] = city_list
+    context_dict['sceneries'] = scenery_list
+
     return render(request, 'rango/mypage.html', context=context_dict)
 
 

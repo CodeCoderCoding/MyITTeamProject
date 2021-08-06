@@ -3,31 +3,46 @@
 {% load staticfiles %}
 
 {% block title_block %}
-    MyPage
+    Homepage
 {% endblock %}
 
 {% block sidebar_block %}
-   {% get_mycity_list city user %}
+   {% get_category_list category %}
 {% endblock %}
 
 {% block body_block %}
-<div class="jumbotron p-4">
-    <div class="container">
-        <h1 class="jumbotron-heading">MyPage</h1>
+<div class="jumbotron p-1" id="big">
+    <div class="container" id="big">
+
+        <div class="row" id="seconddiv">
+            <!--<h2 class="h2"><-->
+            <div id="img" class="col-md-3">
+                <img src="{% static 'images/Buckingham Palace.png' %}" class="img-fluid rounded" alt="This is Buckingham Palace">
+            </div>
+
+            <div class="col-md-9">
+            <h1 id="topic"class="jumbotron-heading" >Buckingham Palace</h1>
+
+                <span> Buckingham Palace is the official residence of the Queen. Every August and September the Queen opens her home to visitors, giving you the chance to tour the lavish State Rooms and garden, and see some great treasures from the Royal Collection along the way. And don’t forget to catch the spectacular Changing the Guard ceremony - daily from May to July, and on alternative days for the rest of the year. </span>
+
+            </div>
+
+        </div>
     </div>
 </div>
 
+<!--
 <div class="container">
     <div class="row">
         <div class="col-md-6">
             <div class="card mb-6">
                 <div class="card-body">
-                    <h2>You Most Liked Cities</h2>
+                    <h2>Most Liked Categories</h2>
                     <p class="card-text">
                     {% if cities %}
                     <ul class="list-group">
                     {% for city in cities %}
-                        <li class="list-group-item"><a href="{% url 'rango:show_my_scenery' city.slug %}">{{ city.name }}</a></li>
+                        <li class="list-group-item"><a href="{% url 'rango:show_scenery' city.slug %}">{{ city.name }}</a></li>
                     {% endfor %}
                     </ul>
                     {% else %}
@@ -41,7 +56,7 @@
         <div class="col-md-6">
             <div class="card mb-6">
                 <div class="card-body">
-                    <h2>You Most Viewed Sceneries</h2>
+                    <h2>Most Viewed Pages</h2>
                     <p class="card-text">
                     {% if sceneries %}
                     <ul class="list-group">
@@ -50,7 +65,7 @@
                     {% endfor %}
                     </ul>
                     {% else %}
-                    <strong>There are no sceneries present.</strong>
+                    <strong>There are no pages present.</strong>
                     {% endif %}
                     </p>
                 </div>
@@ -58,5 +73,5 @@
         </div>
     </div>
 </div>
-
+-->
 {% endblock %}

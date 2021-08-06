@@ -25,6 +25,8 @@
     {% if sceneries %}
     <div>
         {% for scenery in sceneries %}
+{#            <div><a href="{{ scenery.url }}">{{ scenery.title }}</a></div>#}
+{#            <div>{{ scenery.intro }}</div>#}
             <div class="card mb-3" style="max-width: 540px;">
               <div class="row no-gutters">
                 <div class="col-md-4">
@@ -49,6 +51,6 @@
     <a href="{% url 'rango:add_scenery' city.slug user.username%}">Add Scenery</a> <br />
     {% endif %}
     {% else %}
-    The specified city does not exist.
+    The specified category does not exist.
     {% endif %}
 {% endblock %}
