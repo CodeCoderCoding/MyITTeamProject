@@ -17,7 +17,7 @@ FAILURE_FOOTER = f"{os.linesep}"
 f"{FAILURE_HEADER} {FAILURE_FOOTER}"
 
 
-class Chapter10ConfigurationTests(TestCase):
+class ConfigurationTests(TestCase):
     """
     Tests the configuration of the Django project -- can cookies be used, at least on the server-side?
     """
@@ -35,7 +35,7 @@ class Chapter10ConfigurationTests(TestCase):
         self.assertTrue('django.contrib.sessions' in settings.INSTALLED_APPS)
 
 
-class Chapter10SessionPersistenceTests(TestCase):
+class SessionPersistenceTests(TestCase):
     """
     Tests to see if session data is persisted by counting up the number of accesses, and examining last time since access.
     """
